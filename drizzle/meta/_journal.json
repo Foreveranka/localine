@@ -1,0 +1,13 @@
+{
+  "version": "7",
+  "dialect": "postgresql",
+  "entries": [
+    {
+      "idx": 0,
+      "version": "7",
+      "when": 1791767906329,
+      "tag": "0000_sad_cassandra_nova",
+      "breakpoints": true
+    }
+  ]
+}
