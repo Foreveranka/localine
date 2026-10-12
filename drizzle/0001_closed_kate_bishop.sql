@@ -1,0 +1,1 @@
+ALTER TABLE "orders" ALTER COLUMN "payer" DROP NOT NULL;

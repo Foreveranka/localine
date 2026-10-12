@@ -19,8 +19,9 @@ export function transferData(id: string, amount: string) {
 export interface Receipt { status: string; blockNumber: string; blockHash: string; transactionHash: string; logs: { address: string; topics: string[]; data: string }[] }
 export interface Transaction { from: string; to: string; input: string; blockHash: string; hash: string }
 export interface Block { number: string; hash: string; timestamp: string }
-export function checkPayment(order: {id: string; payer: string; amount: string; createdBlock: number; createdAt: number; expiresAt: number}, hash: string, receipt: Receipt, tx: Transaction, block: Block, finalized: Block) {
+export function checkPayment(order: {id: string; payer: string|null; amount: string; createdBlock: number; createdAt: number; expiresAt: number}, hash: string, receipt: Receipt, tx: Transaction, block: Block, finalized: Block) {
   const same = (a: string, b: string) => a?.toLowerCase() === b?.toLowerCase();
+  if (!order.payer) throw new Error("A payer must be bound before this invoice can be paid from a wallet.");
   if (receipt.status !== "0x1") throw new Error("Transaction reverted; no payment was accepted.");
   if (!same(receipt.transactionHash, hash) || !same(tx.hash, hash)) throw new Error("Transaction hash mismatch.");
   if (!same(tx.to, USDC) || !same(tx.from, order.payer)) throw new Error("Payment token or payer does not match this invoice.");

@@ -1,0 +1,20 @@
+<!doctype html>
+<html lang="tr">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Monad testnet ödeme</title><link rel="stylesheet" href="popup.css"></head>
+<body>
+  <header><span>MONAD TESTNET</span><h1>Ödeme bilgileri</h1><p>USDC tutarı klon sitenin faturasından alınır.</p></header>
+  <button id="read" type="button">Faturayı oku</button>
+  <section id="invoice" hidden>
+    <dl><div><dt>Satıcı</dt><dd>ShopinBit demo</dd></div><div><dt>Ağ</dt><dd>Monad Testnet · 10143</dd></div><div><dt>Token</dt><dd>Circle test USDC</dd></div><div><dt>USDC tutarı</dt><dd id="amount"></dd></div><div><dt>Fatura</dt><dd id="invoice-id"></dd></div><div><dt>Geçerlilik</dt><dd id="expiry"></dd></div></dl>
+    <form id="confirm-form">
+      <label for="recipient">Ödeme ekranındaki alıcı adresini yapıştır</label>
+      <input id="recipient" type="text" placeholder="0x…" autocomplete="off" spellcheck="false" required maxlength="42">
+      <p>Adres otomatik seçilmez. Girdiğin adres faturayla karşılaştırılır.</p>
+      <button id="confirm" type="submit">Bilgileri doğrula</button>
+    </form>
+    <div id="confirmed" hidden><strong>Ödeme bilgileri doğrulandı</strong><p id="summary"></p><p>Bu sürüm yalnızca bilgileri doğrular. Yerel ödeme ve USDC gönderimi henüz bağlı değil; ödeme alınmadı.</p></div>
+  </section>
+  <p id="status" role="status" aria-live="polite"></p>
+  <footer>Bağımsız test demo. Gerçek ShopinBit ile bağlantılı değildir.</footer>
+  <script src="popup.js" type="module"></script>
+</body></html>

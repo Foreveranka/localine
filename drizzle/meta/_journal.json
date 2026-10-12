@@ -8,6 +8,13 @@
       "when": 1791767906329,
       "tag": "0000_sad_cassandra_nova",
       "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "7",
+      "when": 1791837301820,
+      "tag": "0001_closed_kate_bishop",
+      "breakpoints": true
     }
   ]
 }

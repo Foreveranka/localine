@@ -19,4 +19,5 @@ for(const [name,r,t,b,f,o] of [
  ['predates invoice',receipt,tx,block,finalized,{...order,createdBlock:102}],
  ['expired',receipt,tx,{...block,timestamp:'0xfa'},finalized,order],
 ]){assert.throws(()=>checkPayment(o as typeof order,hash,r as typeof receipt,t as typeof tx,b as typeof block,f as typeof finalized),{name:'Error'},String(name));}
-console.log('PASS: valid payment plus 11 invalid/replay/reorg cases');
+assert.throws(()=>checkPayment({...order,payer:null},hash,receipt,tx,block,finalized));
+console.log('PASS: valid payment plus 12 invalid/unbound/replay/reorg cases');
