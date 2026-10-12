@@ -1,0 +1,15 @@
+{
+  "name": "monad-usdc-settlement-pool",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "forge build",
+    "test": "forge test",
+    "deploy:testnet": "node scripts/deploy-testnet.mjs",
+    "verify:testnet": "node scripts/verify-testnet.mjs"
+  },
+  "dependencies": {
+    "@openzeppelin/contracts": "5.6.1",
+    "viem": "2.57.5"
+  }
+}

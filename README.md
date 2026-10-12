@@ -15,3 +15,5 @@ Build the ZIP with `node scripts/package-extension.mjs`. To try it, extract `pub
 Verification: `node tests/checkout-reader.test.mjs` plus the existing TypeScript payment tests. The reader deliberately relies on the known server over HTTPS; it does not claim a merchant signature, arbitrary-site support or safety if that server/extension/browser is compromised.
 
 Run npm run dev, npm run build and npm run check. Schema initialization: node --env-file=.env.local scripts/migrate.mjs. Vercel: vercel deploy --prod.
+
+The single USDC settlement pool lives in `contracts/`. It combines committed invoice data, pre-charge reservations, full-amount merchant payouts, replay protection, service roles, limits, funding/withdrawals, pausing and two-step ownership. See `contracts/README.md` and the public testnet deployment/proof in `contracts/deployments/`. The local PSP and website-to-pool worker/verifier remain separate integration work; the existing checkout still uses direct wallet transfers.

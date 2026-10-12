@@ -1,0 +1,28 @@
+{
+  "chainId": 10143,
+  "pool": "0xac336b4e0ae0afac8e29fe0dc2488c66a17ea42d",
+  "token": "0x534b2f3A21130d7a60830c2Df862319e593943A3",
+  "merchant": "0xd022B96bAB53BbBfFBD9D185F5E4A8c4A3B6C2F0",
+  "invoiceId": "0x4d04f1aa3a5166bcb772b56f14d8bffabc1e8c943209ddd1dc633ab91f502566",
+  "attemptId": "0x5432d788dc5922c2315cad28454f35d7490fdc9a8119ff9c2927db154c2f2c49",
+  "paymentRef": "0xa225115bd14534e02f87381b3b69f79a44b6c4fe022088f16d2ed30cbb7a6156",
+  "amount": "1000000",
+  "poolBalance": "4000000",
+  "reservedTotal": "0",
+  "checks": [
+    "finalized USDC payout",
+    "full merchant amount",
+    "committed recipient",
+    "reserved funds protected",
+    "unauthorized operator rejected",
+    "duplicate settlement rejected"
+  ],
+  "fiatPayment": "SIMULATED; no PSP charge was made",
+  "transactions": {
+    "approve": "0x1185ddf386062b86e4ea3297a4eaca9c4ce066592ad31260d245cabeb513ee7b",
+    "fund": "0x6dfe73a61840986e72a0ab11b8ac1f63324087668800599e3f8a15a7516fdbae",
+    "register": "0x95729abb36501b7b2291367f4972d408ee6b598ef7d7fab89bd737aa9058d41a",
+    "reserve": "0xcfd042b84c70b10e5f0aeb4a64103cc575ec7e4e9712e1fb12a3d7b2eb727677",
+    "settle": "0xd0b38ef4e5b0b21d62c72eeb6ab8fc6aa9f78909afd2eca9c05015a2c85c2d22"
+  }
+}

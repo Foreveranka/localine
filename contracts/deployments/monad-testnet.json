@@ -1,0 +1,25 @@
+{
+  "chainId": 10143,
+  "network": "Monad Testnet",
+  "token": "0x534b2f3A21130d7a60830c2Df862319e593943A3",
+  "tokenDecimals": 6,
+  "address": "0xac336b4e0ae0afac8e29fe0dc2488c66a17ea42d",
+  "admin": "0x08719037ECFB5BEF7C88294f2590743E71813875",
+  "invoiceManager": "0xf7CF9158229FC4BdFECcfd47ABe6eD831f3E41fD",
+  "operator": "0x6fb503458098Cee13e4B94fcA0390db55914eE2C",
+  "maxPayment": "15000000",
+  "dailyLimit": "100000000",
+  "transactionHash": "0x8354949686c04ed4b332f5e590e58f95fbf102a3ad0a63938e05a9bd67478b88",
+  "blockNumber": "70498650",
+  "compiler": "0.8.35",
+  "evmVersion": "osaka",
+  "foundryVersion": "1.8.5",
+  "sourceHash": "0xb647a69f20895cc0fca1eb3a9650030fc44e6460e0f7a28dacb34493f4f15ee8",
+  "runtimeCodeHash": "0x220031452c8d5fe5890ac95b06e014a5bc068fea952840cc30c423cd81210280",
+  "sourceVerification": {
+    "provider": "MonadVision / Sourcify",
+    "status": "match",
+    "jobId": "38f3fbe3-743c-468d-a177-3573dc400279",
+    "url": "https://sourcify-api-monad.blockvision.org/verify-ui/jobs/38f3fbe3-743c-468d-a177-3573dc400279"
+  }
+}

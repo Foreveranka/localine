@@ -5,3 +5,7 @@ node_modules/
 .local/
 *.tsbuildinfo
 .vercel
+contracts/node_modules/
+contracts/out/
+contracts/cache/
+contracts/broadcast/
