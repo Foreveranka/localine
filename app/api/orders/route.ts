@@ -16,7 +16,7 @@ export async function POST(request: Request) {
     const block=await rpc<Block>("eth_getBlockByNumber",["finalized",false]);
     const id=randomHex(), accessKey=randomHex(), now=Date.now(), amount=(BigInt(item.units)*BigInt(input.quantity)).toString();
     const order={id,accessHash:await keyHash(accessKey),sku:item.id,quantity:input.quantity,detail:input.detail.trim(),country:input.country,payer:input.payer?.toLowerCase()??null,amount,createdBlock:Number(BigInt(block.number)),createdAt:now,expiresAt:now+30*60*1000,status:"unpaid"};
-    await getDb().insert(orders).values(order);
+    await getDb().insert(orders).values({...order,paymentMethod:order.payer?"wallet":null});
     return json({id,accessKey,sku:order.sku,quantity:order.quantity,amount,payer:order.payer,expiresAt:order.expiresAt,status:"unpaid",chainId:CHAIN_ID,token:USDC,recipient:MERCHANT,data:transferData(id,amount)},201);
   } catch {return json({error:"Could not create the invoice. Please try again."},503);}
 }

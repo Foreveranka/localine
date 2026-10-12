@@ -15,6 +15,20 @@
       "when": 1791837301820,
       "tag": "0001_closed_kate_bishop",
       "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "7",
+      "when": 1791840643755,
+      "tag": "0002_aromatic_firebird",
+      "breakpoints": true
+    },
+    {
+      "idx": 3,
+      "version": "7",
+      "when": 1791840769767,
+      "tag": "0003_zippy_magik",
+      "breakpoints": true
     }
   ]
 }

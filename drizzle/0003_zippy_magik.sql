@@ -1,0 +1,1 @@
+CREATE UNIQUE INDEX "chain_account_nonce_unique" ON "chain_transactions" USING btree ("account","nonce");

@@ -14,12 +14,13 @@ export async function PATCH(request:Request,ctx:Context) {
     if(!allowedRequestOrigin(request))return json({error:"Invalid origin"},403);
     const order=await authorized(request,ctx);if(!order)return json({error:"Invoice not found"},404);
     if(order.status!=="unpaid"||order.expiresAt<=Date.now())return json({error:"Invoice is no longer payable"},409);
+    if(order.paymentMethod==="local")return json({error:"This invoice is being paid by local payment."},409);
     const raw=await request.text();if(raw.length>200)return json({error:"Request too large"},413);
     const {payer}=JSON.parse(raw);if(typeof payer!=="string"||!/^0x[\da-fA-F]{40}$/.test(payer)||/^0x0{40}$/i.test(payer))return json({error:"Invalid payer address"},400);
     const normalized=payer.toLowerCase();
     if(order.payer&&order.payer!==normalized)return json({error:"Invoice is already bound to another payer"},409);
     if(!order.payer){
-      const bound=await getDb().update(orders).set({payer:normalized}).where(and(eq(orders.id,order.id),isNull(orders.payer),eq(orders.status,"unpaid"))).returning({id:orders.id});
+      const bound=await getDb().update(orders).set({payer:normalized,paymentMethod:"wallet"}).where(and(eq(orders.id,order.id),isNull(orders.payer),isNull(orders.paymentMethod),eq(orders.status,"unpaid"))).returning({id:orders.id});
       if(!bound.length)return json({error:"Invoice was already bound or settled. Reload it."},409);
     }
     return json({payer:normalized});
@@ -38,6 +39,7 @@ export async function POST(request:Request,ctx:Context) {
     const raw=await request.text();if(raw.length>500)return json({error:"Request too large"},413);
     const {hash}=JSON.parse(raw);if(typeof hash!=="string"||!/^0x[a-fA-F0-9]{64}$/.test(hash))return json({error:"Invalid transaction hash"},400);
     if(order.status==="paid")return order.txHash===hash.toLowerCase()?json({status:"paid",txHash:order.txHash}):json({error:"Invoice already paid"},409);
+    if(order.paymentMethod==="local")return json({error:"Local payments are verified automatically by the settlement worker."},409);
     const [receipt,tx,finalized]=await Promise.all([rpc<Receipt|null>("eth_getTransactionReceipt",[hash]),rpc<Transaction|null>("eth_getTransactionByHash",[hash]),rpc<Block>("eth_getBlockByNumber",["finalized",false])]);
     if(!receipt||!tx)return json({error:"Transaction is not included yet. Check again shortly."},202);
     const block=await rpc<Block>("eth_getBlockByNumber",[receipt.blockNumber,false]);

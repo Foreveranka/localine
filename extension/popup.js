@@ -44,3 +44,16 @@ $("confirm-form").addEventListener("submit",(event)=>{
     $("confirm-form").hidden=true;$("confirmed").hidden=false;
   });
 });
+
+$("local-pay").addEventListener("click",()=>run(async()=>{
+  if(!current||!checkout)throw new Error("Önce faturayı doğrula.");
+  const fresh=await snapshot();
+  if(fresh.id!==checkout.id||fresh.key!==checkout.key||fresh.tabId!==checkout.tabId)throw new Error("Aktif fatura değişti.");
+  const verified=await readPaymentRequest(fresh);
+  if(!sameRequest(current,verified))throw new Error("Fatura değişti. Tekrar oku.");
+  const address=validateRecipient(verified,$("recipient").value);
+  const origin=allowedOrigin(fresh.url);
+  const target=new URL(`/pay/${verified.invoiceId}`,origin);
+  target.hash=new URLSearchParams({key:fresh.key,recipient:address}).toString();
+  await chrome.tabs.create({url:target.href});
+}));
