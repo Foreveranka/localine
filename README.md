@@ -8,12 +8,17 @@ The current prototype demonstrates **TROY card payments through iyzico sandbox i
 
 ## Try the demo
 
-- Introduction: https://shopinbit-monad.vercel.app
+- Localine product website: https://localine.vercel.app
 - Demo storefront: https://shopinbit-monad.vercel.app/app
+- Shopper installation guide: https://localine.vercel.app/en/shoppers
+- Merchant services: https://localine.vercel.app/en/businesses
+- Documentation and roadmap: https://localine.vercel.app/en/docs · https://localine.vercel.app/en/roadmap
 - Extension: extract `public/monad-checkout-extension.zip` and load the extracted directory through Chrome's **Extensions → Developer mode → Load unpacked**. Alternatively, load this repository's `extension/` directory.
 - Network: **Monad Testnet, chain ID 10143**. All card payments use **iyzico sandbox** and all USDC is **test USDC**.
 
 The storefront is an independent ShopinBit-style demonstration, not an official ShopinBit integration or a merchant partnership. The extension currently supports this demo's `/app` checkout and `http://127.0.0.1:4173/app`, not arbitrary websites.
+
+The standalone product website lives in [`website/`](website/). It provides English, Turkish, French, Spanish and German pages. Vercel selects the initial language from its IP-country header; visitors can override it through the language menu. Businesses can explore both connecting an existing USDC checkout and a team-assisted USDC checkout integration service.
 
 ## Payment flow
 

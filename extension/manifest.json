@@ -1,10 +1,21 @@
 {
   "manifest_version": 3,
-  "name": "Monad ödeme — testnet",
+  "name": "Localine — Monad Testnet",
   "version": "0.1.0",
-  "description": "ShopinBit demo faturasının USDC tutarını sunucudan okur ve elle girilen alıcı adresini kontrol eder.",
-  "permissions": ["activeTab", "scripting"],
-  "host_permissions": ["https://shopinbit-monad.vercel.app/*", "http://127.0.0.1:4173/*"],
-  "action": {"default_popup": "popup.html", "default_title": "Monad testnet ödeme bilgileri"},
-  "content_security_policy": {"extension_pages": "script-src 'self'; object-src 'none'; base-uri 'none'"}
+  "description": "Localine, demo mağazanın USDC faturasını okur; elle doğrulanan alıcıya TROY sandbox ödemesiyle ulaşmayı sağlar.",
+  "permissions": [
+    "activeTab",
+    "scripting"
+  ],
+  "host_permissions": [
+    "https://shopinbit-monad.vercel.app/*",
+    "http://127.0.0.1:4173/*"
+  ],
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "Localine · Yerel ödeme"
+  },
+  "content_security_policy": {
+    "extension_pages": "script-src 'self'; object-src 'none'; base-uri 'none'"
+  }
 }
