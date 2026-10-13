@@ -6,7 +6,7 @@ type Payment={status:string;pageUrl:string|null;txHash:string|null;issue:string|
 const money=(minor:number)=>new Intl.NumberFormat("tr-TR",{style:"currency",currency:"TRY"}).format(minor/100);
 const labels:Record<string,string>={preparing:"Fatura havuza kaydediliyor",reserving:"Satıcının USDC’si ayrılıyor",initialize_ready:"Kart ödeme ekranı hazırlanıyor",initializing:"Kart ödeme ekranı hazırlanıyor",awaiting_payment:"Kart ödemen bekleniyor",captured:"Kart ödemen doğrulandı. USDC satıcıya gönderiliyor",refund_required:"USDC gönderilemedi. Kart iadesi hazırlanıyor",refunding:"Kart iadesi işleniyor",release_pending:"Ödeme sonucu kaydediliyor",cancel_pending:"Ödeme sonucu kaydediliyor",failed:"Kart ödemesi tamamlanmadı",refunded:"Kart ödemesi iade edildi",unavailable:"Bu sipariş için ödeme şu an açılamıyor",review:"Ödeme sonucu kontrol edilmeli. Yeniden ödeme yapma",paid:"Ödeme tamamlandı"};
 export default function LocalCheckout({id}:{id:string}){
-  const [ready,setReady]=useState(false),[key,setKey]=useState(""),[recovery,setRecovery]=useState(""),[recipient,setRecipient]=useState(""),[quote,setQuote]=useState<Quote|null>(null),[payment,setPayment]=useState<Payment|null>(null),[error,setError]=useState(""),[busy,setBusy]=useState(false),[wallet,setWallet]=useState(false);
+  const [ready,setReady]=useState(false),[key,setKey]=useState(""),[recovery,setRecovery]=useState(""),[recipient,setRecipient]=useState(""),[quote,setQuote]=useState<Quote|null>(null),[payment,setPayment]=useState<Payment|null>(null),[error,setError]=useState(""),[loadError,setLoadError]=useState(""),[busy,setBusy]=useState(false),[wallet,setWallet]=useState(false);
   useEffect(()=>{
     const hash=new URLSearchParams(location.hash.slice(1));let saved=hash.get("key")??"";
     if(!saved){try{saved=localStorage.getItem(`local-order:${id}`)??JSON.parse(localStorage.getItem("shopinbit-orders-v1")??"[]").find((x:{id:string})=>x.id===id)?.accessKey??"";}catch{}}
@@ -21,10 +21,10 @@ export default function LocalCheckout({id}:{id:string}){
     async function refresh(){
       if(inFlight)return;inFlight=true;
       try{const r=await fetch(`/api/orders/${id}/local-payment`,{headers:{"x-order-key":key},cache:"no-store"}),data=await r.json();if(!r.ok)throw Error(data.error);
-        if(active){setQuote(data.quote);setPayment(data.payment);setWallet(data.paymentMethod==="wallet");setError("");
+        if(active){setQuote(data.quote);setPayment(data.payment);setWallet(data.paymentMethod==="wallet");setLoadError("");
           if(["paid","refunded","failed","unavailable","review"].includes(data.payment?.status))clearInterval(timer);
         }
-      }catch(e){if(active)setError(e instanceof Error?e.message:"Bilgiler alınamadı");}finally{inFlight=false;}
+      }catch(e){if(active)setLoadError(e instanceof Error?e.message:"Bilgiler alınamadı");}finally{inFlight=false;}
     }
     timer=setInterval(refresh,5000);void refresh();return ()=>{active=false;clearInterval(timer);};
   },[id,key]);
@@ -45,5 +45,5 @@ export default function LocalCheckout({id}:{id:string}){
         {payment.txHash?<a className="outline local-payment-link" href={`${EXPLORER}/tx/${payment.txHash}`} target="_blank" rel="noreferrer">USDC gönderimini görüntüle ↗</a>:null}
       </section>:null}
     </>}
-    {error?<p className="status-message" role="alert">{error}</p>:null}<footer><a href="/app">Mağazaya dön</a><p className="fine muted">Bağımsız ShopinBit demo. Gerçek ürün veya kart ödemesi yok.</p></footer></div></main>;
+    {error||loadError?<p className="status-message" role="alert">{error||loadError}</p>:null}<footer><a href="/app">Mağazaya dön</a><p className="fine muted">Bağımsız ShopinBit demo. Gerçek ürün veya kart ödemesi yok.</p></footer></div></main>;
 }
