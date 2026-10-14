@@ -1,19 +1,20 @@
 {
   "manifest_version": 3,
   "name": "Localine — Monad Testnet",
-  "version": "0.1.0",
-  "description": "Localine, demo mağazanın USDC faturasını okur; elle doğrulanan alıcıya TROY sandbox ödemesiyle ulaşmayı sağlar.",
+  "version": "0.2.0",
+  "description": "Localine connects supported local payments to demo USDC checkouts on Monad Testnet. Available in five languages.",
   "permissions": [
     "activeTab",
     "scripting"
   ],
   "host_permissions": [
     "https://shopinbit-monad.vercel.app/*",
-    "http://127.0.0.1:4173/*"
+    "http://127.0.0.1:4173/*",
+    "https://localine.vercel.app/*"
   ],
   "action": {
     "default_popup": "popup.html",
-    "default_title": "Localine · Yerel ödeme"
+    "default_title": "Localine"
   },
   "content_security_policy": {
     "extension_pages": "script-src 'self'; object-src 'none'; base-uri 'none'"

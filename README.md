@@ -16,15 +16,17 @@ The current prototype demonstrates **TROY card payments through iyzico sandbox i
 - Extension: extract `public/monad-checkout-extension.zip` and load the extracted directory through Chrome's **Extensions → Developer mode → Load unpacked**. Alternatively, load this repository's `extension/` directory.
 - Network: **Monad Testnet, chain ID 10143**. All card payments use **iyzico sandbox** and all USDC is **test USDC**.
 
-The storefront is an independent ShopinBit-style demonstration, not an official ShopinBit integration or a merchant partnership. The extension currently supports this demo's `/app` checkout and `http://127.0.0.1:4173/app`, not arbitrary websites.
+The merchant checkout offers ordinary card and crypto choices. Its Visa/Mastercard path is a visible demo option, not a connected card processor; only the crypto flow is functional. The storefront is an independent ShopinBit-style demonstration, not an official ShopinBit integration or a merchant partnership. The extension currently supports this demo's `/app` checkout and `http://127.0.0.1:4173/app`, not arbitrary websites.
+
+The extension interface supports English, Turkish, French, Spanish and German. It requests only the selected IP-country language from `https://localine.vercel.app/locale`, without invoice details or credentials. Manual selection is stored locally; browser language is the fallback if detection fails.
 
 The standalone product website lives in [`website/`](website/). It provides English, Turkish, French, Spanish and German pages. Vercel selects the initial language from its IP-country header; visitors can override it through the language menu. Businesses can explore both connecting an existing USDC checkout and a team-assisted USDC checkout integration service.
 
 ## Payment flow
 
-1. Create a checkout invoice in the demo store. The server calculates its USDC amount from the catalog.
-2. Open the extension and read the invoice. The amount comes from the server, never from editable page text. Manually paste the merchant recipient address shown in the checkout; a mismatch stops the flow.
-3. Open the local payment checkout. It displays a **demo rate of 1 USDC = 45 TRY**, plus a **2% customer fee**. A 3 USDC purchase costs 137.70 TRY; the merchant receives all 3 USDC.
+1. Create a checkout invoice in the demo store. Select **Pay with crypto → Monad Testnet → USDC** to reveal the merchant address. The server calculates the USDC amount from the catalog.
+2. Open the extension and read the invoice. The amount comes from the server, never from editable page text. Copy the merchant address from checkout and manually paste it **only in the extension**; a mismatch stops the flow. The store has no Localine-specific payment button.
+3. Continue from the extension to the Localine checkout; it does not ask for a second address entry. It displays a **demo rate of 1 USDC = 45 TRY**, plus a **2% customer fee**. A 3 USDC purchase costs 137.70 TRY; the merchant receives all 3 USDC.
 4. A durable worker registers the invoice and reserves liquidity onchain before opening the hosted sandbox card form. Card details stay with iyzico.
 5. After independently verifying the provider's signed capture response, the worker settles the invoice. Canonical finalized contract state, settlement events and the exact USDC transfer are verified before the order becomes paid.
 

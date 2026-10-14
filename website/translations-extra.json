@@ -1,9 +1,52 @@
 {
-"Choose language":{"fr":"Choisir la langue","es":"Elegir idioma","de":"Sprache wählen"},
-"Two ways to work with Localine":{"fr":"Deux façons de travailler avec Localine","es":"Dos formas de trabajar con Localine","de":"Zwei Wege mit Localine"},
-"Already accept crypto?":{"fr":"Vous acceptez déjà les cryptomonnaies ?","es":"¿Ya aceptas criptomonedas?","de":"Sie akzeptieren bereits Krypto?"},
-"No crypto checkout yet?":{"fr":"Pas encore de paiement crypto ?","es":"¿Aún no aceptas pagos cripto?","de":"Noch kein Krypto-Checkout?"},
-"Connect your existing USDC checkout to supported local payment methods. Customers pay locally; your business receives USDC on Monad.":{"fr":"Reliez votre paiement USDC existant aux moyens locaux pris en charge. Les clients paient localement ; votre entreprise reçoit de l’USDC sur Monad.","es":"Conecta tu checkout USDC con los métodos locales compatibles. Los clientes pagan localmente y tu empresa recibe USDC en Monad.","de":"Verbinden Sie Ihren bestehenden USDC-Checkout mit unterstützten lokalen Zahlungsmethoden. Kunden zahlen lokal; Ihr Unternehmen erhält USDC auf Monad."},
-"Our team can help add USDC payments to your website as an integration service, including the checkout, server-side invoices, recipient configuration and payment status updates.":{"fr":"Notre équipe peut intégrer les paiements USDC à votre site : checkout, factures côté serveur, configuration du destinataire et mises à jour des statuts de paiement.","es":"Nuestro equipo puede integrar pagos USDC en tu web, incluidos checkout, facturas del servidor, configuración del destinatario y actualizaciones del estado de pago.","de":"Unser Team kann USDC-Zahlungen als Integrationsservice in Ihre Website einbauen: Checkout, serverseitige Rechnungen, Empfängerkonfiguration und Zahlungsstatusmeldungen."},
-"Merchant onboarding and implementation are arranged with our team. This is a tailored service, not an automatic integration with every website. Commercial deployments require provider onboarding, testing and an agreed operating model.":{"fr":"L’intégration se prépare avec notre équipe. Il s’agit d’un service sur mesure, pas d’une installation automatique sur tout site. Le déploiement commercial exige la mise en place des prestataires, des tests et un modèle opérationnel convenu.","es":"La incorporación e implementación se acuerdan con nuestro equipo. Es un servicio a medida, no una integración automática con cualquier web. El uso comercial requiere configurar proveedores, hacer pruebas y acordar el modelo operativo.","de":"Onboarding und Umsetzung erfolgen gemeinsam mit unserem Team. Dies ist ein individueller Service, keine automatische Integration in jede Website. Kommerzieller Betrieb erfordert Anbieteranbindung, Tests und ein vereinbartes Betriebsmodell."}
+  "Choose language": {
+    "fr": "Choisir la langue",
+    "es": "Elegir idioma",
+    "de": "Sprache wählen"
+  },
+  "Two ways to work with Localine": {
+    "fr": "Deux façons de travailler avec Localine",
+    "es": "Dos formas de trabajar con Localine",
+    "de": "Zwei Wege mit Localine"
+  },
+  "Already accept crypto?": {
+    "fr": "Vous acceptez déjà les cryptomonnaies ?",
+    "es": "¿Ya aceptas criptomonedas?",
+    "de": "Sie akzeptieren bereits Krypto?"
+  },
+  "No crypto checkout yet?": {
+    "fr": "Pas encore de paiement crypto ?",
+    "es": "¿Aún no aceptas pagos cripto?",
+    "de": "Noch kein Krypto-Checkout?"
+  },
+  "Connect your existing USDC checkout to supported local payment methods. Customers pay locally; your business receives USDC on Monad.": {
+    "fr": "Reliez votre paiement USDC existant aux moyens locaux pris en charge. Les clients paient localement ; votre entreprise reçoit de l’USDC sur Monad.",
+    "es": "Conecta tu checkout USDC con los métodos locales compatibles. Los clientes pagan localmente y tu empresa recibe USDC en Monad.",
+    "de": "Verbinden Sie Ihren bestehenden USDC-Checkout mit unterstützten lokalen Zahlungsmethoden. Kunden zahlen lokal; Ihr Unternehmen erhält USDC auf Monad."
+  },
+  "Our team can help add USDC payments to your website as an integration service, including the checkout, server-side invoices, recipient configuration and payment status updates.": {
+    "fr": "Notre équipe peut intégrer les paiements USDC à votre site : checkout, factures côté serveur, configuration du destinataire et mises à jour des statuts de paiement.",
+    "es": "Nuestro equipo puede integrar pagos USDC en tu web, incluidos checkout, facturas del servidor, configuración del destinatario y actualizaciones del estado de pago.",
+    "de": "Unser Team kann USDC-Zahlungen als Integrationsservice in Ihre Website einbauen: Checkout, serverseitige Rechnungen, Empfängerkonfiguration und Zahlungsstatusmeldungen."
+  },
+  "Merchant onboarding and implementation are arranged with our team. This is a tailored service, not an automatic integration with every website. Commercial deployments require provider onboarding, testing and an agreed operating model.": {
+    "fr": "L’intégration se prépare avec notre équipe. Il s’agit d’un service sur mesure, pas d’une installation automatique sur tout site. Le déploiement commercial exige la mise en place des prestataires, des tests et un modèle opérationnel convenu.",
+    "es": "La incorporación e implementación se acuerdan con nuestro equipo. Es un servicio a medida, no una integración automática con cualquier web. El uso comercial requiere configurar proveedores, hacer pruebas y acordar el modelo operativo.",
+    "de": "Onboarding und Umsetzung erfolgen gemeinsam mit unserem Team. Dies ist ein individueller Service, keine automatische Integration in jede Website. Kommerzieller Betrieb erfordert Anbieteranbindung, Tests und ein vereinbartes Betriebsmodell."
+  },
+  "Open the demo store, create a checkout of 15 USDC or less, and choose Pay with crypto. Select Monad Testnet as the network and USDC as the currency. The merchant payment address appears after both selections.": {
+    "fr": "Ouvrez la boutique démo et créez un paiement de 15 USDC maximum. Choisissez le paiement crypto, puis le réseau Monad Testnet et la devise USDC. L’adresse du commerçant apparaît après ces deux choix.",
+    "es": "Abre la tienda demo y crea un pago de hasta 15 USDC. Elige pagar con cripto, la red Monad Testnet y la moneda USDC. La dirección del vendedor aparece después de ambas selecciones.",
+    "de": "Öffnen Sie den Demo-Shop und erstellen Sie einen Checkout bis 15 USDC. Wählen Sie Krypto-Zahlung, das Netzwerk Monad Testnet und USDC als Währung. Danach erscheint die Händleradresse."
+  },
+  "Keep the crypto checkout tab active. Open the Localine extension and choose Read invoice. Paste the merchant address only in the extension; the store does not ask you to enter it. The extension interface supports five languages and selects its initial language by IP country.": {
+    "fr": "Gardez le checkout crypto actif. Ouvrez l’extension Localine et choisissez Lire la facture. Collez l’adresse uniquement dans l’extension ; la boutique ne demande pas de la saisir. L’extension propose cinq langues et choisit sa langue initiale selon le pays de l’IP.",
+    "es": "Mantén activo el checkout cripto. Abre la extensión Localine y elige Leer factura. Pega la dirección solo en la extensión; la tienda no la solicita. La extensión ofrece cinco idiomas y elige el inicial según el país de la IP.",
+    "de": "Lassen Sie den Krypto-Checkout aktiv. Öffnen Sie Localine und wählen Sie Rechnung lesen. Fügen Sie die Adresse nur in der Erweiterung ein; der Shop fragt nicht danach. Die Erweiterung unterstützt fünf Sprachen und wählt die erste anhand des IP-Landes."
+  },
+  "In the extension, choose Continue with Localine. On the Localine payment page, review the TRY amount, demo rate and fee, then continue to card payment. No second address entry is required. The app reserves liquidity before opening iyzico’s hosted sandbox form.": {
+    "fr": "Dans l’extension, choisissez Continuer avec Localine. Sur la page Localine, vérifiez le montant TRY, le taux démo et les frais, puis continuez vers la carte. Aucune seconde saisie d’adresse. La liquidité est réservée avant l’ouverture du formulaire sandbox iyzico.",
+    "es": "En la extensión, elige Continuar con Localine. En la página Localine revisa el importe TRY, el tipo demo y la comisión, y continúa al pago con tarjeta. No hay una segunda entrada de dirección. Se reserva liquidez antes del formulario sandbox iyzico.",
+    "de": "Wählen Sie in der Erweiterung Mit Localine fortfahren. Prüfen Sie auf der Localine-Seite TRY-Betrag, Demo-Kurs und Gebühr und fahren Sie zur Kartenzahlung fort. Keine zweite Adresseingabe. Liquidität wird vor dem iyzico-Sandbox-Formular reserviert."
+  }
 }

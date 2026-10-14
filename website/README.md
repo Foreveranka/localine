@@ -22,6 +22,8 @@ Visit http://127.0.0.1:4184/en/ or replace `en` with `tr`, `fr`, `es` or `de`. T
 
 `middleware.js` runs for entry URLs without a locale. It uses Vercel's `x-vercel-ip-country` header, not a third-party IP lookup. Türkiye selects Turkish; configured French-speaking countries select French; Germany, Austria, Liechtenstein and Switzerland select German; configured Spanish-speaking countries select Spanish. Other or unknown countries select English. Country is a default, not a guarantee of the visitor's language.
 
+The public `/locale` middleware endpoint returns only `{language}` based on the IP country, without redirecting or returning an IP address. The extension uses it with omitted credentials and falls back to the browser language if it fails.
+
 The language menu keeps the current page and remembers the selected language in a non-sensitive preference cookie. Explicit localized URLs remain stable. Redirect responses are private and uncached so one visitor's country does not determine another visitor's language. The application does not persist IP addresses or request browser location permission.
 
 ## Extension distribution
